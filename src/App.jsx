@@ -1,10 +1,82 @@
+import { useLayoutEffect, useRef } from 'react'
 import './App.css'
 import relogioPretoImg from './assets/relogio-preto.svg'
 import relogioRoseImg from './assets/relogio-rose.svg'
 import relogioUltraImg from './assets/relogio-ultra.svg'
 import relogio2 from './assets/relogio2.svg'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 function App() {
+
+  const el = useRef();
+  const tl = useRef();
+
+  useLayoutEffect(() => {
+
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to(".relogio", {
+      x: 0,
+      opacity: 1,
+      rotate: "0deg",
+      scrollTrigger:{
+        trigger: ".items",
+        //markers: true,
+        start: "top 520px",
+        end: "bottom 600px",
+        scrub: true
+      }
+    })
+
+    return () => {
+      gsap.killTweensOf(".relogio")
+    }
+  }, [])
+
+
+  useLayoutEffect(() => {
+
+    gsap.registerPlugin(ScrollTrigger)
+    const ctx = gsap.context(() => {
+      tl.current = gsap.timeline({
+        scrollTrigger:{
+          trigger:".models-item",
+          scrub: true,
+          // markers: true,
+          start: "top 800px",
+          end: "bottom 900px"
+        }
+      })
+      .fromTo("#model-1", {
+        opacity: 0,
+        y: 160,
+      }, {
+        opacity: 1,
+        y: 0
+      })
+      .fromTo("#model-2", {
+        opacity: 0,
+        y: 160,
+      }, {
+        opacity: 1,
+        y: 0
+      })
+      .fromTo("#model-3", {
+        opacity: 0,
+        y: 160,
+      }, {
+        opacity: 1,
+        y: 0
+      })
+    }, el)
+
+
+    return () => {
+      gsap.killTweensOf(".models-item")
+    }
+
+  }, [])
+
   return (
     <div className="container">
       <div className="area-model">
@@ -23,7 +95,7 @@ function App() {
       <section className="models-container">
         <h2 className="title">Qual é o Apple Watch ideal para você?</h2>
 
-        <div className="models-content">
+        <div className="models-content" ref={el}>
           <div className="models-item" id="model-1">
             <img src={relogioPretoImg} alt="Relogio Preto" />
             <span className="models-tag">Novo</span>
