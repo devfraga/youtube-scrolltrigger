@@ -2,7 +2,7 @@
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 8px;
+  padding: 0 0px;
 }
 
 .area-model{
@@ -34,6 +34,9 @@
 .relogio{
   width: 100%;
   max-width: 400px;
+  transform: translateX(-700px) rotate(180deg);
+  opacity: 0;
+
 }
 
 

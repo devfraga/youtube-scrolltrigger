@@ -1,0 +1,44 @@
+.container{
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0px;
+}
+
+.areaModel{
+  height: 500px;
+  width: 100%;
+  background: #b4b4b4;
+  margin-bottom: 16px;
+}
+
+.section{
+  height: 100vh
+}
+
+.section p{
+  font-size: 40px;
+}
+
+
+section {
+  display: grid;
+  place-content: center;
+
+  p {
+      font-size: clamp(2rem, 5vw, 8rem);
+  }
+
+  &:nth-of-type(1) {
+      border-bottom: 1px solid black;
+  }
+
+  &:nth-of-type(3) {
+      background: #ffff00;
+  }
+
+  &:nth-of-type(4) {
+      background: rgb(29, 29, 29);
+      color: white;
+  }
+}
