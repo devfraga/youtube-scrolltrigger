@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import './App.css'
 import relogioPretoImg from './assets/relogio-preto.svg'
 import relogioRoseImg from './assets/relogio-rose.svg'
@@ -6,7 +6,6 @@ import relogioUltraImg from './assets/relogio-ultra.svg'
 import relogio2 from './assets/relogio2.svg'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Text } from './Text'
 
 function App() {
 
@@ -121,21 +120,12 @@ function App() {
 
       </section>
 
-      <Text/>
       <div className="area-model">
         <h1>ITEM 3</h1>
       </div>
       
       <div className="area-model">
         <h1>ITEM 4</h1>
-      </div>
-
-      <div className="area-model">
-        <h1>ITEM 5</h1>
-      </div>
-      
-      <div className="area-model">
-        <h1>ITEM 6</h1>
       </div>
     </div>
   )
